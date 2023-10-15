@@ -1,0 +1,8 @@
+
+#hero{
+    background: url("../images/wallpaper.jpg") fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 90vh;
+    width: 100%;
+}
