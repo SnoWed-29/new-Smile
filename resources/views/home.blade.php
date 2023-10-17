@@ -1,5 +1,10 @@
 @extends('layouts.app')
 @section('content')
+@if(session('Success'))
+<div class="fixed bottom-0 right-0 p-4 m-4 text-sm text-white rounded-lg bg-green-700 dark:bg-gray-800 dark:text-green-400" role="alert">
+    <span class="font-medium">{{ session('Success') }}</span>
+</div>
+@endif
     <section id="hero" class="border-b border-[#3bbadc]">
         <div class="bg-[#3bb9dc5b] w-full h-full">
             <div class="container w-9/12 mx-auto flex items-center h-[70vh]">
@@ -11,9 +16,9 @@
             </div>
         </div>
     </section>
-    <section class="container flex w-9/12 mx-auto flex-col">
+    <section id="services" class="container flex w-9/12 mx-auto flex-col">
         <div class="flex justify-center w-full my-2">
-            <h1 class="text-5xl w-fit mx-auto text-[#3bbadc] border-b-2 border-[#183459] pb-4">Service</h1>
+            <h1 class="text-5xl w-fit mx-auto text-[#3bbadc] border-b-2 border-[#183459] pb-4">Services</h1>
         </div>
         <div class="flex flex-col space-y-7 my-4">
             <div class="flex justify-between  space-x-2 shadow-xl ">

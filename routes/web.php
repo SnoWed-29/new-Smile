@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return view('home');
-});
+})->name('home');
 
 Route::get('/rendez-vous',[RendezVousController::class, 'index']);
 Route::post('/rendez-vous',[RendezVousController::class, 'create']);
