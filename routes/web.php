@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\RendezVousController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('home');
 });
+
+Route::get('/rendez-vous',[RendezVousController::class, 'index']);
+Route::post('/rendez-vous',[RendezVousController::class, 'create']);
