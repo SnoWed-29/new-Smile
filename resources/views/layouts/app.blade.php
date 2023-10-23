@@ -31,7 +31,6 @@
         @yield('content')
     </main>
 
-    
     <footer class="flex flex-row bg-gray-300 h-fit p-3 bottom-0">
         <div class="container w-9/12 mx-auto flex justify-around">
             <div class="flex flex-col w-1/3" >
