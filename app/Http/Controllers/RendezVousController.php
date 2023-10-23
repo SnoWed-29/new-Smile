@@ -34,3 +34,6 @@ class RendezVousController extends Controller
         return redirect()->route('home')->with('Success', "le rendez-vous est pris, attendez-vous à un appel bientôt");
     }
 }
+
+
+// cnob bnob

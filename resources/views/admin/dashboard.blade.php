@@ -7,7 +7,7 @@
             <h1 class="text-5xl w-fit mx-auto text-white pb-4">Resrvation</h1>
             <div class="flex flex-col space-y-2 justify-between mx-3">
                 <div class="flex">    
-                    <li class="text-white text-lg">Nombre des Resrvation Confirme :  </li> <span class="font-semibold text-green-400 text-lg">{{$totalResrvation}}</span>
+                    <li class="text-white text-lg">Nombre des Resrvation Confirme :  </li> <span class="font-semibold text-green-400 text-lg">{{$totalReservationsConfirmed}}</span>
                 </div>
                 <div class="flex">    
                     <li class="text-white text-lg">Nombre Total des Resrvation : </li> <span class="font-semibold text-lg">{{$totalResrvation}}</span>
@@ -47,7 +47,7 @@
                                 <button class="bg-red-500 text-white px-2 py-1 rounded">Supprimer</button>
                             </td>
                             <td class="py-2 px-4">
-                                <button class="bg-blue-500 text-white px-2 py-1 rounded">Voir Plus</button>
+                                <a href="/admin/dashboard/reservation/{{$resrvation->id}}" class="bg-blue-500 text-white px-2 p-4 w-fit rounded">Voir Plus</a>
                             </td>
                         </tr>
                         @endforeach
