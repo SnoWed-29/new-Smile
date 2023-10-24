@@ -1,5 +1,10 @@
 @extends('layouts.app')
 @section('content')
+@if(session('Success'))
+<div class="fixed bottom-0 right-0 p-4 m-4 text-sm text-white rounded-lg bg-green-700 dark:bg-gray-800 dark:text-green-400" role="alert">
+    <span class="font-medium">{{ session('Success') }}</span>
+</div>
+@endif
 <section class="my-4 min-h-[80vh]  max-h-fit">
 
     <div class="container mx-auto flex flex-col md:flex-row">
@@ -34,7 +39,7 @@
                         <!-- Example Client 1 -->
                         @foreach ($resrvations as $resrvation)
                         
-                        <tr href="www.google.com" class="cursor-pointer">
+                        <tr class="cursor-pointer text-lg">
                             <td class="py-2 px-4">{{$resrvation->id}}</td>
                             <td class="py-2 px-4">{{$resrvation->name}}</td>
                             <td class="py-2 px-4">{{$resrvation->last_name}}</td>
@@ -42,12 +47,22 @@
                             <td class="py-2 px-4">{{$resrvation->phone}}</td>
                             <td class="py-2 px-4">{{$resrvation->message}}</td>
                             <td class="py-2 px-4">{{$resrvation->created_at->diffForHumans()}}</td>
-                            <td class="py-2 px-4">
-                                <button class="bg-blue-500 text-white px-2 py-1 rounded">Modifier</button>
-                                <button class="bg-red-500 text-white px-2 py-1 rounded">Supprimer</button>
+
+                            @if (!$resrvation->confirme) 
+                                <td class="py-2 px-4 w-full text-center">
+                                    <a href="/admin/dashboard/reservation/{{$resrvation->id}}" class="bg-green-400 hover:bg-green-500 p-2 text-white rounded-md">Confirme</a>
+                                </td>
+                            @else
+                            <td class="py-2 px-4 w-full text-center text-green-500">
+                                <span>✔️</span>
                             </td>
-                            <td class="py-2 px-4">
-                                <a href="/admin/dashboard/reservation/{{$resrvation->id}}" class="bg-blue-500 text-white px-2 p-4 w-fit rounded">Voir Plus</a>
+                            @endif
+                            <td  class="py-2 px-4">
+                                <form action="/delete/{{$resrvation->id}}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <button type="submit" class="bg-red-400 p-2 rounded-md text-white hover:bg-red-500"> Supprimmer</button>
+                                </form>
                             </td>
                         </tr>
                         @endforeach

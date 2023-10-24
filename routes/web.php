@@ -14,10 +14,10 @@ Route::post('/rendez-vous',[RendezVousController::class, 'create']);
 
 /* Dashboard */
 Route::middleware(['auth'])->group(function () {
-    Route::get('/admin/dashboard', [DashboardController::class, 'index']);
+    Route::get('/admin/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/admin/dashboard/reservation/{id}', [DashboardController::class, 'showReservation']);
     Route::put('/confirme', [DashboardController::class, 'confirme']);
-    Route::
+    Route::delete('/delete/{id}', [DashboardController::class, 'destroy']);
 });
 Auth::routes();
 
