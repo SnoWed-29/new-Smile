@@ -5,7 +5,10 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>New Smile</title>
-
+        <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+        />
         @vite(['resources/css/app.css', 'public/css/style.css'])
     </head>
 <body>
@@ -28,8 +31,7 @@
         @yield('content')
     </main>
 
-    
-    <footer class="flex flex-row bg-gray-300 h-fit p-3">
+    <footer class="flex flex-row bg-gray-300 h-fit p-3 bottom-0">
         <div class="container w-9/12 mx-auto flex justify-around">
             <div class="flex flex-col w-1/3" >
                 <img src="/images/logoSmall.png" alt="" class="w-[320px]">
