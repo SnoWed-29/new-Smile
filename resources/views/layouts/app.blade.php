@@ -20,7 +20,17 @@
             <div class="">
                 <a href="#hero" class="text-[#183459] hover:border-b-2 hover:border-[#3bbadc] text-xl mx-4 p-4 font-semibold">Accueil</a>
                 <a href="#services" class="text-[#183459] hover:border-b-2 hover:border-[#3bbadc] text-xl mx-4 p-4 font-semibold">Services</a>
+                @guest
+                    @if(!Route::has('login'))
+                        <a href="/admin/dashboard" class="text-[#183459] hover:border-b-2 hover:border-[#3bbadc] text-xl mx-4 p-4 font-semibold">Dashboard</a>
+                    @endif
+                @endguest
+            
+                @auth
+                    <a href="/admin/dashboard" class="text-[#183459] hover:border-b-2 hover:border-[#3bbadc] text-xl mx-4 p-4 font-semibold">Dashboard</a>
+                @endauth
             </div>
+            
             <div class=""> 
                 <a href="/rendez-vous" class="p-4 text-white bg-[#3BBADC] text-lg font-semibold rounded-md ">Rendez-Vous +</a>
             </div>

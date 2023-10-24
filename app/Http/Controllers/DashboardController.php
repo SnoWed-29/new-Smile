@@ -10,9 +10,7 @@ class DashboardController extends Controller
         $reservations = Reservation::all()->sortByDesc('created_at');
         $totalReservations = count($reservations);
         
-        $totalReservationsConfirmed = $reservations->filter(function ($reservation) {
-            return $reservation->confirme === true;
-        })->count();
+        $totalReservationsConfirmed = Reservation::all()->where('confirme', 1)->count();
         
             return view('admin.dashboard')->with([
                 'resrvations'=> $reservations ,
@@ -37,6 +35,11 @@ class DashboardController extends Controller
         Reservation::where('id', $id)->update([
             'confirme' => true
         ]);        
-        return dd("hdhdhd");
+        return redirect()->route('dashboard')->with('Success', "Confirmations a été successe");
+    }
+
+    public function destroy($id, Request $request){
+        Reservation::where('id', $id)->delete();
+        return redirect()->route('dashboard')->with('Success', "Rendez-Vous a été Suprimmer ");
     }
 }
